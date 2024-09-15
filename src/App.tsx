@@ -1,20 +1,27 @@
-import Nav from "./components/Nav"
-import Courses from "./components/Courses"
-import Cart from "./components/Cart"
+import Main from "./components/Main"
+import Reciept from "./components/Receipt"
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
 	return (
 		<>
-			<Nav />
-			<div
-				style={{
-					width: "100%",
-					boxSizing: "border-box",
-					padding: "0 calc(1rem + 10%)",
-				}}>
-				<Courses />
-				<Cart />
-			</div>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<>
+						<div style={{width: "100vw", backgroundColor: "#fafcff"}}>
+							<Main />
+						</div>
+					</>}>
+					</Route>
+					<Route path="/receipt" element={<>
+						<div style={{width: "100vw", backgroundColor: "#fafcff"}}>
+							<Reciept />
+						</div>
+					</>}>
+					</Route>
+				</Routes>
+			</BrowserRouter>
 		</>
 	)
 }
